@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.css">
   </head>
   <body>
-    <!-- Este contenedor es necesario -->
+    <!-- El contenedor que necesita Netlify CMS -->
     <div id="nc-root"></div>
 
+    <!-- Se asegura que todo el DOM está listo antes de ejecutar CMS -->
     <script>
-      // Inicia CMS si se requiere (aunque en la mayoría de los casos no hace falta este bloque si no hay CMS_MANUAL_INIT)
-      if (window.CMS_MANUAL_INIT) {
-        CMS.init();
-      }
+      document.addEventListener('DOMContentLoaded', function () {
+        if (window.CMS) {
+          CMS.init();
+        }
+      });
     </script>
   </body>
 </html>
+
 
 
 
