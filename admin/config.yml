@@ -1,5 +1,4 @@
-
-       backend:
+backend:
   name: git-gateway
   branch: main
 
@@ -19,4 +18,6 @@ collections:
       - label: "Contenido"
         name: "body"
         widget: "markdown"
+
+
 
