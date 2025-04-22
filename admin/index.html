@@ -7,17 +7,15 @@
     <link rel="stylesheet" href="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.css">
   </head>
   <body>
-    <h1>Netlify CMS</h1>
+    <!-- IMPORTANTE: este contenedor debe existir -->
     <script>
-      // Asegurarse de que el código se ejecute solo cuando el DOM esté completamente cargado
-      document.addEventListener('DOMContentLoaded', function () {
-        if (window.CMS) {
-          CMS.init();
-        }
-      });
+      if (window.CMS_MANUAL_INIT) {
+        CMS.init();
+      }
     </script>
   </body>
 </html>
+
 
 
 
