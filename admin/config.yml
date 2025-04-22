@@ -1,17 +1,22 @@
+
 backend:
   name: git-gateway
-  branch: main  # Especifica la rama de tu repositorio (main o master)
+  branch: main
 
-media_folder: "static/img"  # Directorio donde se almacenarán las imágenes subidas
-public_folder: "/img"  # Ruta pública para acceder a las imágenes
+media_folder: "static/img"
+public_folder: "/img"
 
 collections:
-  - name: "pages"  # Nombre de la colección (por ejemplo, páginas del sitio)
-    label: "Páginas"  # Etiqueta que aparecerá en el CMS
-    folder: "content/pages"  # Carpeta donde se almacenarán las páginas
-    create: true  # Permite crear nuevas páginas desde el CMS
-    slug: "{{slug}}"  # Genera una URL amigable desde el título
+  - name: "pages"
+    label: "Páginas"
+    folder: "content/pages"
+    create: true
+    slug: "{{slug}}"
     fields:
-      - { label: "Título", name: "title", widget: "string" }  # Campo para el título
-      - { label: "Contenido", name: "body", widget: "markdown" }  # Campo para el contenido en markdown
+      - label: "Título"
+        name: "title"
+        widget: "string"
+      - label: "Contenido"
+        name: "body"
+        widget: "markdown"
 
