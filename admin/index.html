@@ -7,18 +7,15 @@
     <link rel="stylesheet" href="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.css">
   </head>
   <body>
-    <div id="nc-root"></div> <!-- Este contenedor es obligatorio -->
-
+    <div id="nc-root"></div>
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        if (window.CMS) {
-          CMS.init();
-        }
-      });
+      if (window.CMS_MANUAL_INIT) {
+        CMS.init();
+      }
     </script>
   </body>
 </html>
-fix: añadir contenedor nc-root para Netlify CMS
+
 
 
 
