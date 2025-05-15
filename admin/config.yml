@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: camicentro10/jolly-chaja-14b7e8
+  repo: riccardo2211/mi-sitio
   branch: main
 
 media_folder: "static/img"
@@ -19,6 +19,7 @@ collections:
       - label: "Contenido"
         name: "body"
         widget: "markdown"
+
 
 
 
