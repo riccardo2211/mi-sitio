@@ -2,6 +2,8 @@ backend:
   name: github
   repo: riccardo2211/mi-sitio
   branch: main
+  base_url: https://jolly-chaja-14b7e8.netlify.app/.netlify/functions
+  auth_endpoint: auth
 
 media_folder: "static/img"
 public_folder: "/img"
