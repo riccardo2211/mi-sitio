@@ -8,19 +8,16 @@
 <body>
   <h1>Bienvenido al acceso privado</h1>
 
-  <!-- Botones para login, logout y signup con el widget de Netlify Identity -->
   <button id="login-btn">Iniciar sesión / Registrarse</button>
   <button id="logout-btn" style="display:none;">Cerrar sesión</button>
 
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
-    // Inicializar Netlify Identity
     netlifyIdentity.init();
 
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
 
-    // Mostrar botones según el estado del usuario
     function updateUI(user) {
       if (user) {
         loginBtn.style.display = 'none';
@@ -31,33 +28,29 @@
       }
     }
 
-    // Evento login: redirige a /admin
     netlifyIdentity.on('login', user => {
       updateUI(user);
-      window.location.href = '/admin';
+      window.location.href = '/cms';  // Cambiado a /cms
     });
 
-    // Evento logout: actualizar UI y redirigir a home
     netlifyIdentity.on('logout', () => {
       updateUI(null);
       window.location.href = '/';
     });
 
-    // Botón iniciar sesión o registrarse abre el widget
     loginBtn.addEventListener('click', () => {
       netlifyIdentity.open();
     });
 
-    // Botón cerrar sesión
     logoutBtn.addEventListener('click', () => {
       netlifyIdentity.logout();
     });
 
-    // Al cargar la página, actualizar UI según usuario actual
     updateUI(netlifyIdentity.currentUser());
   </script>
 </body>
 </html>
+
 
 
 
