@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Acceso Netlify Identity</title>
+  <title>i-motion Tenerife EMS</title>
 </head>
 <body>
-  <h1>Bienvenido al acceso privado</h1>
+  <h1>Bienvenido a i-motion Tenerife EMS</h1>
+  <p>Entrenamiento EMS personalizado en Tenerife Sur</p>
 
-  <button id="login-btn">Iniciar sesión / Registrarse</button>
+  <button id="login-btn">Acceder al panel</button>
   <button id="logout-btn" style="display:none;">Cerrar sesión</button>
 
+  <!-- Carga del widget Netlify Identity -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
     netlifyIdentity.init();
@@ -30,7 +32,7 @@
 
     netlifyIdentity.on('login', user => {
       updateUI(user);
-      window.location.href = '/cms';  // Cambiado a /cms
+      window.location.href = '/cms'; // Cambiar si usas otra ruta para el CMS
     });
 
     netlifyIdentity.on('logout', () => {
@@ -46,10 +48,19 @@
       netlifyIdentity.logout();
     });
 
+    // Detectar recuperación de contraseña y abrir el widget automáticamente
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('type') === 'recovery') {
+      netlifyIdentity.open();
+    }
+
     updateUI(netlifyIdentity.currentUser());
   </script>
 </body>
 </html>
+
+
+
 
 
 
