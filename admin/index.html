@@ -1,63 +1,26 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>i-motion Tenerife EMS</title>
-</head>
-<body>
-  <h1>Bienvenido a i-motion Tenerife EMS</h1>
-  <p>Entrenamiento EMS personalizado en Tenerife Sur</p>
-
-  <button id="login-btn">Acceder al panel</button>
-  <button id="logout-btn" style="display:none;">Cerrar sesión</button>
-
-  <!-- Carga del widget Netlify Identity -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
-    netlifyIdentity.init();
-
-    const loginBtn = document.getElementById('login-btn');
-    const logoutBtn = document.getElementById('logout-btn');
-
-    function updateUI(user) {
-      if (user) {
-        loginBtn.style.display = 'none';
-        logoutBtn.style.display = 'inline-block';
-      } else {
-        loginBtn.style.display = 'inline-block';
-        logoutBtn.style.display = 'none';
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Content Manager</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
       }
-    }
-
-    netlifyIdentity.on('login', user => {
-      updateUI(user);
-      window.location.href = '/cms'; // Cambiar si usas otra ruta para el CMS
-    });
-
-    netlifyIdentity.on('logout', () => {
-      updateUI(null);
-      window.location.href = '/';
-    });
-
-    loginBtn.addEventListener('click', () => {
-      netlifyIdentity.open();
-    });
-
-    logoutBtn.addEventListener('click', () => {
-      netlifyIdentity.logout();
-    });
-
-    // Detectar recuperación de contraseña y abrir el widget automáticamente
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('type') === 'recovery') {
-      netlifyIdentity.open();
-    }
-
-    updateUI(netlifyIdentity.currentUser());
-  </script>
-</body>
+    </script>
+  </head>
+  <body>
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  </body>
 </html>
+
 
 
 
