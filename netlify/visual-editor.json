@@ -1,0 +1,11 @@
+{
+  "collections": [
+    {
+      "name": "pages",
+      "label": "Páginas",
+      "folder": "content/pages",
+      "path": "{{slug}}",
+      "url": "/{{slug}}/"
+    }
+  ]
+}
