@@ -1,25 +1,26 @@
-// stackbit.config.ts
-import type { StackbitConfig } from "@stackbit/sdk";
+import { defineStackbitConfig } from "@stackbit/types";
+import { GitContentSource } from "@stackbit/cms-git";
 
-export default {
-  stackbitVersion: "0.6.0",
+export default defineStackbitConfig({
+  stackbitVersion: "~0.6.0",
   contentSources: [
-    {
-      type: "git",
-      repoId: "riccardo2211/mi-sitio",
-      contentDir: "content/pages",
-    },
-  ],
-  models: [
-    {
-      name: "page",
-      label: "Página",
-      type: "page",
-      filePathPattern: "content/pages/{slug}.md",
-      fields: [
-        { name: "title", type: "string", label: "Título" },
-        { name: "body", type: "markdown", label: "Contenido" },
-      ],
-    },
-  ],
-} satisfies StackbitConfig;
+    new GitContentSource({
+      rootPath: __dirname,
+      contentDirs: ["content/pages"],
+      models: [
+        {
+          name: "page",
+          type: "page",
+          filePath: "content/pages/{slug}.md",
+          urlPath: "/{slug}",
+          fields: [
+            { name: "title", type: "string", required: true }
+            // Add other fields as needed
+          ]
+        }
+      ]
+    })
+  ]
+});
+
+
