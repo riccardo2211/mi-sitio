@@ -14,13 +14,14 @@ export default defineStackbitConfig({
           filePath: "content/pages/{slug}.md",
           urlPath: "/{slug}",
           fields: [
-            { name: "title", type: "string", required: true }
-            // Add other fields as needed
+            { name: "title", type: "string", required: true },
+            { name: "body", type: "markdown" } // puedes agregar este campo también si usas contenido
           ]
         }
       ]
     })
   ]
 });
+
 
 
