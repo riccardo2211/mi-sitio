@@ -18,8 +18,4 @@ export default defineStackbitConfig({
             { name: "slug", type: "string", required: true },
             { name: "body", type: "markdown" }
           ]
-        }
-      ]
-    })
-  ]
-});
+     
