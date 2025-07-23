@@ -1,6 +1,8 @@
 ---
 title: "Testimonios"
 slug: "testimonios"
-type: page
+type: "page"
+---
 
 Nuestros clientes cuentan su experiencia.
+
