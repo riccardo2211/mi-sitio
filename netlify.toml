@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+  command = "" # Si tienes un comando para construir el sitio (ej: npm run build), escríbelo aquí. Si tu sitio ya está listo, déjalo vacío.
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
