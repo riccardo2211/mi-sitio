@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.meta_description }}">
+</head>
+<body>
+  <header>
+    <h1>{{ page.title }}</h1>
+
+    {% if page.featured_image %}
+      <img src="{{ page.featured_image }}" alt="Imagen destacada">
+    {% endif %}
+  </header>
+
+  <main>
+    <div class="content">
+      {{ page.body }}
+    </div>
+  </main>
+</body>
+</html>
