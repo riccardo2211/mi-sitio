@@ -1,11 +1,3 @@
-backend:
-  name: git-gateway
-  branch: main
-publish_mode: editorial_workflow
-
-media_folder: "static/img"
-public_folder: "/img"
-
 collections:
   - name: "pages"
     label: "Páginas"
@@ -16,9 +8,19 @@ collections:
       - label: "Título"
         name: "title"
         widget: "string"
+      - label: "Meta título"
+        name: "meta_title"
+        widget: "string"
+      - label: "Meta descripción"
+        name: "meta_description"
+        widget: "text"
+      - label: "Imagen destacada"
+        name: "featured_image"
+        widget: "image"
       - label: "Contenido"
         name: "body"
         widget: "markdown"
+
 
 
 
