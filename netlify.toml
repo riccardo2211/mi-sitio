@@ -1,8 +1,14 @@
 [build]
   publish = "."
-  command = "" # Si tienes un comando para construir el sitio (ej: npm run build), escríbelo aquí. Si tu sitio ya está listo, déjalo vacío.
+  command = ""  # Se hai un comando di build (es. npm run build), inseriscilo qui
 
 [[redirects]]
-  from = "/admin/*"
-  to = "/admin/index.html"
+  from   = "/admin/*"
+  to     = "/admin/index.html"
   status = 200
+
+[[redirects]]
+  from   = "/.netlify/identity/*"
+  to     = "/.netlify/identity/:splat"
+  status = 200
+
