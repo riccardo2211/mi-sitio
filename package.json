@@ -7,7 +7,7 @@
     "start": "serve ."
   },
   "dependencies": {
-    "netlify-cms-app": "^3.0.0"
+    "netlify-cms-app": "^2.15.77"
   },
   "devDependencies": {
     "serve": "^14.0.1"
