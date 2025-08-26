@@ -1,10 +1,12 @@
+# netlify.toml
+
 [build]
   command = ""       # sin compilación
   publish = "."      # publica desde la raíz
 
 [identity]
-  open  = true               # permite registros abiertos (opcional)
-  roles = ["editor", "admin"]  # declara los roles disponibles
+  open  = true                # permite registros abiertos (opcional)
+  roles = ["editor", "admin"] # declara los roles disponibles
 
 [[redirects]]
   from   = "/admin/*"
@@ -13,6 +15,7 @@
 
 [build.environment]
   NODE_VERSION = "18.20.8"
+
 
 
 
