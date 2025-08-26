@@ -1,0 +1,15 @@
+{
+  "name": "mi-sitio",
+  "version": "1.0.0",
+  "description": "Sito statico con Netlify CMS",
+  "scripts": {
+    "build": "echo 'Nessuna build necessaria per HTML statico'",
+    "start": "serve ."
+  },
+  "dependencies": {
+    "netlify-cms-app": "^3.0.0"
+  },
+  "devDependencies": {
+    "serve": "^14.0.1"
+  }
+}
