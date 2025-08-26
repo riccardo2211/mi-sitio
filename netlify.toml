@@ -1,14 +1,10 @@
 [build]
-  publish = "."
-  command = ""  # Se hai un comando di build (es. npm run build), inseriscilo qui
+  publish = "dist"
+  command = "npm run build"
 
 [[redirects]]
-  from   = "/admin/*"
-  to     = "/admin/index.html"
+  from = "/admin/*"
+  to = "/admin/index.html"
   status = 200
 
-[[redirects]]
-  from   = "/.netlify/identity/*"
-  to     = "/.netlify/identity/:splat"
-  status = 200
 
