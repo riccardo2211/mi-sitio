@@ -12,6 +12,7 @@ export default defineStackbitConfig({
         {
           name: "page",
           type: "page",
+          label: "Páginas",
           filePath: "content/pages/{slug}.md",
           urlPath: "/{slug}",
           fields: [
@@ -20,6 +21,13 @@ export default defineStackbitConfig({
               type: "string",
               required: true,
               label: "Título"
+            },
+            {
+              name: "slug",
+              type: "slug",
+              from: "title",
+              required: true,
+              label: "Ruta (slug)"
             },
             {
               name: "body",
@@ -32,4 +40,5 @@ export default defineStackbitConfig({
     })
   ]
 });
+
 
