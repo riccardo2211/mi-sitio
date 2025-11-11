@@ -15,6 +15,7 @@ export default defineStackbitConfig({
           label: "Páginas",
           filePath: "content/pages/{slug}.md",
           urlPath: "/{slug}",
+          pageLayout: "{slug}.html", // 👈 ESTA LÍNEA ES CLAVE
           fields: [
             {
               name: "title",
@@ -40,5 +41,7 @@ export default defineStackbitConfig({
     })
   ]
 });
+
+
 
 
