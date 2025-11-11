@@ -5,8 +5,8 @@
   publish = "."      # publica desde la raíz
 
 [identity]
-  open  = true                # permite registros abiertos (opcional)
-  roles = ["editor", "admin"] # declara los roles disponibles
+  open  = true
+  roles = ["editor", "admin"]
 
 [[redirects]]
   from   = "/admin/*"
@@ -15,6 +15,25 @@
 
 [build.environment]
   NODE_VERSION = "18.20.8"
+
+# Permitir CORS para el socket de preview usado por Netlify Studio
+[[headers]]
+  for = "/_socket/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://create.netlify.com"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Allow-Credentials = "true"
+
+# Alternativa amplia (solo para testing). Comentar/desactivar en producción.
+[[headers]]
+  for = "/_socket/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Allow-Credentials = "true"
+
 
 
 
