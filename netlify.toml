@@ -1,17 +1,17 @@
-# netlify.toml - forza Node.js 20 per la build e stampa la versione per diagnostica
+# netlify.toml - forza Node 20 e stampa diagnostica
 [build]
   node_version = "20"
+  # Sostituisci "npm run build" con il tuo comando di build se diverso
+  command = "node -v && echo '--- repo root files ---' && ls -la && npm run build"
+  # Sostituisci publish con la cartella di output corretta (vedi esempi sotto)
   publish = "build"
-  command = "node -v && npm run build"
 
-# Impostazioni per l'ambiente di produzione (opzionale, ridondante con node_version)
 [context.production.environment]
   NODE_VERSION = "20"
 
-# Se usi funzioni serverless e vuoi essere esplicito
 [functions]
-  # se usi bundler specifico, ad esempio esbuild; altrimenti rimuovi questa sezione
   node_bundler = "esbuild"
+
 
 
 
