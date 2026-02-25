@@ -1,40 +1,18 @@
-# netlify.toml
-
-[build]
-  command = ""       # sin compilación
-  publish = "."      # publica desde la raíz
-
-[identity]
-  open  = true
-  roles = ["editor", "admin"]
-
-[[redirects]]
-  from   = "/admin/*"
-  to     = "/admin/index.html"
-  status = 200
-
-[build.environment]
+# netlify.toml - forza Node.js 20 per la build e stampa la versione per diagnostica
 [build]
   node_version = "20"
+  publish = "build"
+  command = "node -v && npm run build"
 
+# Impostazioni per l'ambiente di produzione (opzionale, ridondante con node_version)
+[context.production.environment]
+  NODE_VERSION = "20"
 
-# Permitir CORS para el socket de preview usado por Netlify Studio
-[[headers]]
-  for = "/_socket/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "https://create.netlify.com"
-    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type, Authorization"
-    Access-Control-Allow-Credentials = "true"
+# Se usi funzioni serverless e vuoi essere esplicito
+[functions]
+  # se usi bundler specifico, ad esempio esbuild; altrimenti rimuovi questa sezione
+  node_bundler = "esbuild"
 
-# Alternativa amplia (solo para testing). Comentar/desactivar en producción.
-[[headers]]
-  for = "/_socket/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type, Authorization"
-    Access-Control-Allow-Credentials = "true"
 
 
 
